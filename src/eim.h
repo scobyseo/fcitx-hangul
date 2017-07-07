@@ -39,6 +39,7 @@ typedef struct _FcitxHangulConfig
     boolean hanjaMode;
     boolean autoReorder;
     boolean wordCommit;
+    unsigned int baseLayout;
     FcitxHotkey hkHanjaMode[2];
 } FcitxHangulConfig;
 

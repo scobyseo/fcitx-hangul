@@ -71,6 +71,11 @@ static void FcitxHangulResetEvent(void* arg);
 static char* FcitxHangulUcs4ToUtf8(FcitxHangul* hangul, const ucschar* ucsstr, int length);
 static void FcitxHangulUpdateHanjaStatus(FcitxHangul* hangul);
 
+// 0 : dvorak, 1 : colemak, 2 : qwerty
+static unsigned int
+keyval_dvorak_colemak_to_qwerty (unsigned int keyval, unsigned int layout);
+
+
 static inline void FcitxHangulFreeHanjaList(FcitxHangul* hangul) {
     if (hangul->hanjaList) {
         hanja_list_delete (hangul->hanjaList);
@@ -140,6 +145,9 @@ void FcitxHangulReset (void* arg)
         FcitxHangulFlush(hangul);
     }
     hangul_ic_reset(hangul->ic);
+    if (hangul->hanjaList) {
+        FcitxHangulCleanLookupTable(hangul);
+    }
 }
 
 /**
@@ -296,6 +304,11 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
             FcitxHangulFlush(hangul);
         }
 
+
+        // comparison of unsigned expression >= 0 is always true
+        if (hangul->fh.baseLayout < 2) {
+          sym = keyval_dvorak_colemak_to_qwerty (sym, hangul->fh.baseLayout);
+        }
         keyUsed = hangul_ic_process(hangul->ic, sym);
         boolean notFlush = false;
 
@@ -333,14 +346,7 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
                 char* commit = FcitxHangulUcs4ToUtf8(hangul, str, -1);
                 if (commit) {
                     FcitxInstanceCleanInputWindowUp(hangul->owner);
-                    if ((strcmp(commit, "`") == 0 && FcitxHotkeyIsHotKey(sym, state, FCITX_HANGUL_GRAVE))
-                     || (strcmp(commit, ";") == 0 && FcitxHotkeyIsHotKey(sym, state, FCITX_SEMICOLON))) {
-                        keyUsed = false;
-                        notFlush = true;
-                    }
-                    else {
-                        FcitxInstanceCommitString(hangul->owner, FcitxInstanceGetCurrentIC(hangul->owner), commit);
-                    }
+                    FcitxInstanceCommitString(hangul->owner, FcitxInstanceGetCurrentIC(hangul->owner), commit);
                     free(commit);
                 }
             }
@@ -905,5 +911,221 @@ void FcitxHangulResetEvent(void* arg)
     }
     else {
         FcitxUISetStatusVisable(hangul->owner, "hanja", true);
+    }
+}
+
+
+
+unsigned int
+keyval_qwerty_to_dvorak_colemak (unsigned int keyval, unsigned int layout)
+{//{dvorak, colemak}
+    static unsigned short table[][2] = {
+    { '!',    '!' },    /* ! */
+    { '_',    '"' },    /* " */
+    { '#',    '#' },    /* # */
+    { '$',    '$' },    /* $ */
+    { '%',    '%' },    /* % */
+    { '&',    '&' },    /* & */
+    { '-',    '\'' },    /* ' */
+    { '(',    '(' },    /* ( */
+    { ')',    ')' },    /* ) */
+    { '*',    '*' },    /* * */
+    { '}',    '+' },    /* + */
+    { 'w',    ',' },    /* , */
+    { '[',    '-' },    /* - */
+    { 'v',    '.' },    /* . */
+    { 'z',    '/' },    /* / */
+    { '0',    '0' },    /* 0 */
+    { '1',    '1' },    /* 1 */
+    { '2',    '2' },    /* 2 */
+    { '3',    '3' },    /* 3 */
+    { '4',    '4' },    /* 4 */
+    { '5',    '5' },    /* 5 */
+    { '6',    '6' },    /* 6 */
+    { '7',    '7' },    /* 7 */
+    { '8',    '8' },    /* 8 */
+    { '9',    '9' },    /* 9 */
+    { 'S',    'O' },    /* : */
+    { 's',    'o' },    /* ; */
+    { 'W',    '<' },    /* < */
+    { ']',    '=' },    /* = */
+    { 'V',    '>' },    /* > */
+    { 'Z',    '?' },    /* ? */
+    { '@',    '@' },    /* @ */
+    { 'A',    'A' },    /* A */
+    { 'X',    'B' },    /* B */
+    { 'J',    'C' },    /* C */
+    { 'E',    'S' },    /* D */
+    { '>',    'F' },    /* E */
+    { 'U',    'T' },    /* F */
+    { 'I',    'D' },    /* G */
+    { 'D',    'H' },    /* H */
+    { 'C',    'U' },    /* I */
+    { 'H',    'N' },    /* J */
+    { 'T',    'E' },    /* K */
+    { 'N',    'I' },    /* L */
+    { 'M',    'M' },    /* M */
+    { 'B',    'K' },    /* N */
+    { 'R',    'Y' },    /* O */
+    { 'L',    ':' },    /* P */
+    { '"',    'Q' },    /* Q */
+    { 'P',    'P' },    /* R */
+    { 'O',    'R' },    /* S */
+    { 'Y',    'G' },    /* T */
+    { 'G',    'L' },    /* U */
+    { 'K',    'V' },    /* V */
+    { '<',    'W' },    /* W */
+    { 'Q',    'X' },    /* X */
+    { 'F',    'J' },    /* Y */
+    { ':',    'Z' },    /* Z */
+    { '/',    '[' },    /* [ */
+    { '\\',    '\\' },    /* \ */
+    { '=',    ']' },    /* ] */
+    { '^',    '^' },    /* ^ */
+    { '{',    '_' },    /* _ */
+    { '`',    '`' },    /* ` */
+    { 'a',    'a' },    /* a */
+    { 'x',    'b' },    /* b */
+    { 'j',    'c' },    /* c */
+    { 'e',    's' },    /* d */
+    { '.',    'f' },    /* e */
+    { 'u',    't' },    /* f */
+    { 'i',    'd' },    /* g */
+    { 'd',    'h' },    /* h */
+    { 'c',    'u' },    /* i */
+    { 'h',    'n' },    /* j */
+    { 't',    'e' },    /* k */
+    { 'n',    'i' },    /* l */
+    { 'm',    'm' },    /* m */
+    { 'b',    'k' },    /* n */
+    { 'r',    'y' },    /* o */
+    { 'l',    ';' },    /* p */
+    { '\'',    'q' },    /* q */
+    { 'p',    'p' },    /* r */
+    { 'o',    'r' },    /* s */
+    { 'y',    'g' },    /* t */
+    { 'g',    'l' },    /* u */
+    { 'k',    'v' },    /* v */
+    { ',',    'w' },    /* w */
+    { 'q',    'x' },    /* x */
+    { 'f',    'j' },    /* y */
+    { ';',    'z' },    /* z */
+    { '?',    '{' },    /* { */
+    { '|',    '|' },    /* | */
+    { '+',    '}' },    /* } */
+    { '~',    '~' },    /* ~ */
+    };
+
+    if (keyval < '!' || keyval > '~') {
+        return keyval;
+    } else {
+        return table[keyval - '!'][layout];
+    }
+}
+
+unsigned int
+keyval_dvorak_colemak_to_qwerty (unsigned int keyval, unsigned int layout)
+{//{dvorak, colemak}
+    static unsigned short table[][2] = {
+    { 0x21,    0x21 },    /* ! */
+    { 0x51,    0x22 },    /* " */
+    { 0x23,    0x23 },    /* # */
+    { 0x24,    0x24 },    /* $ */
+    { 0x25,    0x25 },    /* % */
+    { 0x26,    0x26 },    /* & */
+    { 0x71,    0x27 },    /* ' */
+    { 0x28,    0x28 },    /* ( */
+    { 0x29,    0x29 },    /* ) */
+    { 0x2A,    0x2A },    /* * */
+    { 0x7D,    0x2B },    /* + */
+    { 0x77,    0x2C },    /* , */
+    { 0x27,    0x2D },    /* - */
+    { 0x65,    0x2E },    /* . */
+    { 0x5B,    0x2F },    /* / */
+    { 0x30,    0x30 },    /* 0 */
+    { 0x31,    0x31 },    /* 1 */
+    { 0x32,    0x32 },    /* 2 */
+    { 0x33,    0x33 },    /* 3 */
+    { 0x34,    0x34 },    /* 4 */
+    { 0x35,    0x35 },    /* 5 */
+    { 0x36,    0x36 },    /* 6 */
+    { 0x37,    0x37 },    /* 7 */
+    { 0x38,    0x38 },    /* 8 */
+    { 0x39,    0x39 },    /* 9 */
+    { 0x5A,    0x50 },    /* : */
+    { 0x7A,    0x70 },    /* ; */
+    { 0x57,    0x3C },    /* < */
+    { 0x5D,    0x3D },    /* = */
+    { 0x45,    0x3E },    /* > */
+    { 0x7B,    0x3F },    /* ? */
+    { 0x40,    0x40 },    /* @ */
+    { 0x41,    0x41 },    /* A */
+    { 0x4E,    0x42 },    /* B */
+    { 0x49,    0x43 },    /* C */
+    { 0x48,    0x47 },    /* D */
+    { 0x44,    0x4B },    /* E */
+    { 0x59,    0x45 },    /* F */
+    { 0x55,    0x54 },    /* G */
+    { 0x4A,    0x48 },    /* H */
+    { 0x47,    0x4C },    /* I */
+    { 0x43,    0x59 },    /* J */
+    { 0x56,    0x4E },    /* K */
+    { 0x50,    0x55 },    /* L */
+    { 0x4D,    0x4D },    /* M */
+    { 0x4C,    0x4A },    /* N */
+    { 0x53,    0x3A },    /* O */
+    { 0x52,    0x52 },    /* P */
+    { 0x58,    0x51 },    /* Q */
+    { 0x4F,    0x53 },    /* R */
+    { 0x3A,    0x44 },    /* S */
+    { 0x4B,    0x46 },    /* T */
+    { 0x46,    0x49 },    /* U */
+    { 0x3E,    0x56 },    /* V */
+    { 0x3C,    0x57 },    /* W */
+    { 0x42,    0x58 },    /* X */
+    { 0x54,    0x4F },    /* Y */
+    { 0x3F,    0x5A },    /* Z */
+    { 0x2D,    0x5B },    /* [ */
+    { 0x5C,    0x5C },    /* \ */
+    { 0x3D,    0x5D },    /* ] */
+    { 0x5E,    0x5E },    /* ^ */
+    { 0x22,    0x5F },    /* _ */
+    { 0x60,    0x60 },    /* ` */
+    { 0x61,    0x61 },    /* a */
+    { 0x6E,    0x62 },    /* b */
+    { 0x69,    0x63 },    /* c */
+    { 0x68,    0x67 },    /* d */
+    { 0x64,    0x6B },    /* e */
+    { 0x79,    0x65 },    /* f */
+    { 0x75,    0x74 },    /* g */
+    { 0x6A,    0x68 },    /* h */
+    { 0x67,    0x6C },    /* i */
+    { 0x63,    0x79 },    /* j */
+    { 0x76,    0x6E },    /* k */
+    { 0x70,    0x75 },    /* l */
+    { 0x6D,    0x6D },    /* m */
+    { 0x6C,    0x6A },    /* n */
+    { 0x73,    0x3B },    /* o */
+    { 0x72,    0x72 },    /* p */
+    { 0x78,    0x71 },    /* q */
+    { 0x6F,    0x73 },    /* r */
+    { 0x3B,    0x64 },    /* s */
+    { 0x6B,    0x66 },    /* t */
+    { 0x66,    0x69 },    /* u */
+    { 0x2E,    0x76 },    /* v */
+    { 0x2C,    0x77 },    /* w */
+    { 0x62,    0x78 },    /* x */
+    { 0x74,    0x6F },    /* y */
+    { 0x2F,    0x7A },    /* z */
+    { 0x5F,    0x7B },    /* { */
+    { 0x7C,    0x7C },    /* | */
+    { 0x2B,    0x7D },    /* } */
+    { 0x7E,    0x7E },    /* ~ */
+    };
+
+    if (keyval < 0x21 || keyval > 0x7E) {
+        return keyval;
+    } else {
+        return table[keyval - 0x21][layout];
     }
 }

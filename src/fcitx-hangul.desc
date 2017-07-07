@@ -1,18 +1,51 @@
 [Hangul/Keyboard]
 Type=Enum
-DefaultValue=Dubeolsik
+DefaultValue=Dubeolsik KSX 5002
 Description=Keyboard Layout
-EnumCount=9
-Enum0=Dubeolsik
-Enum1=Dubeolsik Yetgeul
-Enum2=Sebeolsik 390
-Enum3=Sebeolsik Final
-Enum4=Sebeolsik Noshift
-Enum5=Sebeolsik Yetgeul
-Enum6=Sebeolsik Dubeol Layout
-Enum7=Romaja
-Enum8=Ahnmatae
-
+EnumCount=38
+Enum0=Dubeolsik KSX 5002
+Enum1=Dubeolsik Noshift
+Enum2=Dubeolsik North 9256
+Enum3=Sebeolsik 3-90
+Enum4=Sebeolsik 3-91 Final
+Enum5=Sebeolsik 3-P3
+Enum6=Sebeolsik Semoe 2017
+Enum7=Sebeolsik Noshift 2014
+Enum8=Sebeolsik Shin P2
+Enum9=Sebeolsik Shin P2 Yetgeul
+Enum10=Sebeolsik 3-89
+Enum11=Sebeolsik 3-91 Final Noshift
+Enum12=Sebeolsik 3-93 Yetgeul
+Enum13=Sebeolsik Dubeol Layout
+Enum14=Dubeolsik Yetgeul
+Enum15=Romaja
+Enum16=Ahnmatae
+Enum17=Sebeolsik Ahnmatae
+Enum18=Sebeolsik 3-2011
+Enum19=Sebeolsik 3-2011 Yetgeul
+Enum20=Sebeolsik 3-2012
+Enum21=Sebeolsik 3-2012 Yetgeul
+Enum22=Sebeolsik 3-2014
+Enum23=Sebeolsik 3-2014 Yetgeul
+Enum24=Sebeolsik 3-2015
+Enum25=Sebeolsik 3-2015 Yetgeul
+Enum26=Sebeolsik 3-2015M
+Enum27=Sebeolsik 3-2015P
+Enum28=Sebeolsik 3-2015P Yetgeul
+Enum29=Sebeolsik 3-P2
+Enum30=Sebeolsik 3-14 Proposal
+Enum31=Sebeolsik Semoe 2014
+Enum32=Sebeolsik Semoe 2015
+Enum33=Sebeolsik Semoe 2016
+Enum34=Sebeolsik Noshift 1990
+Enum35=Sebeolsik Gimguk-38A Yetgeul
+Enum36=Sebeolsik Shin 1995
+Enum37=Sebeolsik Shin 2003
+Enum38=Sebeolsik Shin 2012
+Enum39=Sebeolsik Shin 2015
+Enum40=Sebeolsik Shin M
+Enum41=Sebeolsik Shin P
+Enum42=Sebeolsik Shin P Yetgeul
 
 [Hangul/HanjaModeToggleKey]
 Type=Hotkey
@@ -33,6 +66,15 @@ Description=Word Commit
 Type=Boolean
 DefaultValue=False
 Description=Hanja Mode
+
+[Hangul/BaseLayout]
+Type=Enum
+DefaultValue=Qwerty
+Description=Base Layout
+EnumCount=3
+Enum0=Dvorak
+Enum1=Colemak
+Enum2=Qwerty
 
 [DescriptionFile]
 LocaleDomain=fcitx-hangul

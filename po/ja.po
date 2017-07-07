@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fcitx\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2013-06-26 22:02-0400\n"
-"PO-Revision-Date: 2013-06-27 00:23+0000\n"
+"POT-Creation-Date: 2017-07-08 00:50+0900\n"
+"PO-Revision-Date: 2017-07-08 01:19+0900\n"
 "Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/fcitx/language/"
 "ja/)\n"
@@ -19,26 +19,48 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 2.0.1\n"
 
-#: src/fcitx-hangul.desc:14
+#: src/fcitx-hangul.desc:22
 msgid "Ahnmatae"
 msgstr "Ahnmatae"
 
-#: src/fcitx-hangul.desc:25
+#: src/fcitx-hangul.desc:58
 msgid "Auto Reorder"
 msgstr "自動並び替え"
 
+#: src/fcitx-hangul.desc:73
+#, fuzzy
+msgid "Base Layout"
+msgstr "キーボードレイアウト"
+
+#: src/fcitx-hangul.desc:76
+msgid "Colemak"
+msgstr ""
+
 #: src/fcitx-hangul.desc:6
-msgid "Dubeolsik"
-msgstr "Dubeolsik"
+msgid "Dubeolsik KSX 5002"
+msgstr "二套式 標準"
+
+#: src/fcitx-hangul.desc:8
+msgid "Dubeolsik North 9256"
+msgstr "二套式 北朝鮮"
 
 #: src/fcitx-hangul.desc:7
-msgid "Dubeolsik Yetgeul"
-msgstr "Dubeolsik Yetgeul"
+msgid "Dubeolsik Noshift"
+msgstr "二套式 シフトなし"
 
-#: src/eim.c:763 src/fcitx-hangul.conf.in:3 src/hangul.conf.in:3
-#: src/fcitx-hangul.desc:1 src/fcitx-hangul.desc:17 src/fcitx-hangul.desc:22
-#: src/fcitx-hangul.desc:27 src/fcitx-hangul.desc:32
+#: src/fcitx-hangul.desc:20
+msgid "Dubeolsik Yetgeul"
+msgstr "二套式 古文"
+
+#: src/fcitx-hangul.desc:75
+msgid "Dvorak"
+msgstr ""
+
+#: src/eim.c:769 src/fcitx-hangul.conf.in:3 src/hangul.conf.in:3
+#: src/fcitx-hangul.desc:1 src/fcitx-hangul.desc:50 src/fcitx-hangul.desc:55
+#: src/fcitx-hangul.desc:60 src/fcitx-hangul.desc:65 src/fcitx-hangul.desc:70
 msgid "Hangul"
 msgstr "ハングル"
 
@@ -46,11 +68,11 @@ msgstr "ハングル"
 msgid "Hangul Wrapper For Fcitx"
 msgstr "Fcitx 用 ハングルラッパー"
 
-#: src/fcitx-hangul.desc:35
+#: src/fcitx-hangul.desc:68
 msgid "Hanja Mode"
 msgstr "朝鮮漢字モード"
 
-#: src/fcitx-hangul.desc:20
+#: src/fcitx-hangul.desc:53
 msgid "Hanja Mode Toggle Key"
 msgstr "朝鮮漢字モードのトリガーとなるキー"
 
@@ -58,38 +80,170 @@ msgstr "朝鮮漢字モードのトリガーとなるキー"
 msgid "Keyboard Layout"
 msgstr "キーボードレイアウト"
 
-#: src/fcitx-hangul.desc:13
+#: src/fcitx-hangul.desc:77
+msgid "Qwerty"
+msgstr ""
+
+#: src/fcitx-hangul.desc:21
 msgid "Romaja"
-msgstr "Romaja"
+msgstr ""
 
-#: src/fcitx-hangul.desc:8
-msgid "Sebeolsik 390"
-msgstr "Sebeolsik 390"
+#: src/fcitx-hangul.desc:36
+msgid "Sebeolsik 3-14 Proposal"
+msgstr "三套式 3-14 提案"
 
-#: src/fcitx-hangul.desc:12
-msgid "Sebeolsik Dubeol Layout"
-msgstr "Sebeolsik Dubeol レイアウト"
+#: src/fcitx-hangul.desc:24
+msgid "Sebeolsik 3-2011"
+msgstr "三套式 3-2011"
+
+#: src/fcitx-hangul.desc:25
+msgid "Sebeolsik 3-2011 Yetgeul"
+msgstr "三套式 3-2011 古文"
+
+#: src/fcitx-hangul.desc:26
+msgid "Sebeolsik 3-2012"
+msgstr "三套式 3-2012"
+
+#: src/fcitx-hangul.desc:27
+msgid "Sebeolsik 3-2012 Yetgeul"
+msgstr "三套式 3-2012 古文"
+
+#: src/fcitx-hangul.desc:28
+msgid "Sebeolsik 3-2014"
+msgstr "三套式 3-2014"
+
+#: src/fcitx-hangul.desc:29
+msgid "Sebeolsik 3-2014 Yetgeul"
+msgstr "三套式 3-20141 古文"
+
+#: src/fcitx-hangul.desc:30
+msgid "Sebeolsik 3-2015"
+msgstr "三套式 3-2015"
+
+#: src/fcitx-hangul.desc:31
+msgid "Sebeolsik 3-2015 Yetgeul"
+msgstr "三套式 3-2015 古文"
+
+#: src/fcitx-hangul.desc:32
+msgid "Sebeolsik 3-2015M"
+msgstr "三套式 3-2015M"
+
+#: src/fcitx-hangul.desc:33
+msgid "Sebeolsik 3-2015P"
+msgstr "三套式 3-2015P"
+
+#: src/fcitx-hangul.desc:34
+msgid "Sebeolsik 3-2015P Yetgeul"
+msgstr "三套式 3-2015P 古文"
+
+#: src/fcitx-hangul.desc:16
+msgid "Sebeolsik 3-89"
+msgstr "三套式 3-89"
 
 #: src/fcitx-hangul.desc:9
-msgid "Sebeolsik Final"
-msgstr "Sebeolsik Final"
+msgid "Sebeolsik 3-90"
+msgstr "三套式 3-90"
 
 #: src/fcitx-hangul.desc:10
-msgid "Sebeolsik Noshift"
-msgstr "Sebeolsik Noshift"
+msgid "Sebeolsik 3-91 Final"
+msgstr "三套式 3-91 最終"
+
+#: src/fcitx-hangul.desc:17
+msgid "Sebeolsik 3-91 Final Noshift"
+msgstr "三套式 3-91 最終 シフトなし"
+
+#: src/fcitx-hangul.desc:18
+msgid "Sebeolsik 3-93 Yetgeul"
+msgstr "三套式 3-93 古文"
+
+#: src/fcitx-hangul.desc:35
+msgid "Sebeolsik 3-P2"
+msgstr "三套式 3-P2"
 
 #: src/fcitx-hangul.desc:11
-msgid "Sebeolsik Yetgeul"
-msgstr "Sebeolsik Yetgeul"
+msgid "Sebeolsik 3-P3"
+msgstr "三套式 3-P3"
 
-#: src/eim.c:817
+#: src/fcitx-hangul.desc:23
+msgid "Sebeolsik Ahnmatae"
+msgstr "三套式 Ahnmatae"
+
+#: src/fcitx-hangul.desc:41
+msgid "Sebeolsik Gimguk-38A Yetgeul"
+msgstr "三套式 Gimguk-38A 古文"
+
+#: src/fcitx-hangul.desc:19
+msgid "Sebeolsik Dubeol Layout"
+msgstr "三套式 二套 割付"
+
+#: src/fcitx-hangul.desc:40
+msgid "Sebeolsik Noshift 1990"
+msgstr "三套式 シフトなし 1990"
+
+#: src/fcitx-hangul.desc:13
+msgid "Sebeolsik Noshift 2014"
+msgstr "三套式 シフトなし 2014"
+
+#: src/fcitx-hangul.desc:37
+msgid "Sebeolsik Semoe 2014"
+msgstr "三套式 セモイ 2014"
+
+#: src/fcitx-hangul.desc:38
+msgid "Sebeolsik Semoe 2015"
+msgstr "三套式 セモイ 2015"
+
+#: src/fcitx-hangul.desc:39
+msgid "Sebeolsik Semoe 2016"
+msgstr "三套式 セモイ 2016"
+
+#: src/fcitx-hangul.desc:12
+msgid "Sebeolsik Semoe 2017"
+msgstr "三套式 セモイ 2017"
+
+#: src/fcitx-hangul.desc:42
+msgid "Sebeolsik Shin 1995"
+msgstr "新三套式 1995"
+
+#: src/fcitx-hangul.desc:43
+msgid "Sebeolsik Shin 2003"
+msgstr "新三套式 2003"
+
+#: src/fcitx-hangul.desc:44
+msgid "Sebeolsik Shin 2012"
+msgstr "新三套式 2012"
+
+#: src/fcitx-hangul.desc:45
+msgid "Sebeolsik Shin 2015"
+msgstr "新三套式 2015"
+
+#: src/fcitx-hangul.desc:46
+msgid "Sebeolsik Shin M"
+msgstr "新三套式 M"
+
+#: src/fcitx-hangul.desc:47
+msgid "Sebeolsik Shin P"
+msgstr "新三套式 P"
+
+#: src/fcitx-hangul.desc:48
+msgid "Sebeolsik Shin P Yetgeul"
+msgstr "新三套式 P 古文"
+
+#: src/fcitx-hangul.desc:14
+msgid "Sebeolsik Shin P2"
+msgstr "新三套式 P2"
+
+#: src/fcitx-hangul.desc:15
+msgid "Sebeolsik Shin P2 Yetgeul"
+msgstr "新三套式 P2 古文"
+
+#: src/eim.c:823
 msgid "Use Hangul"
 msgstr "ハングルを使う"
 
-#: src/eim.c:814
+#: src/eim.c:820
 msgid "Use Hanja"
 msgstr "朝鮮漢字を使う"
 
-#: src/fcitx-hangul.desc:30
+#: src/fcitx-hangul.desc:63
 msgid "Word Commit"
 msgstr "単語確定"
