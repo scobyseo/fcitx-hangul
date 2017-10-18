@@ -34,7 +34,7 @@ typedef enum _FcitxHangulKeyboard
     Sebeolsik_3_2015M,
     Sebeolsik_3_2015P,
     Sebeolsik_3_2015P_yet,
-    Sebeolsik_3_P2
+    Sebeolsik_3_P2,
     Sebeolsik_3_14_Proposal,
     Sebeolsik_Semoe_2014,
     Sebeolsik_Semoe_2015,
