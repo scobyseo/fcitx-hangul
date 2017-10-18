@@ -2,7 +2,7 @@
 Type=Enum
 DefaultValue=Dubeolsik KSX 5002
 Description=Keyboard Layout
-EnumCount=38
+EnumCount=41
 Enum0=Dubeolsik KSX 5002
 Enum1=Dubeolsik Noshift
 Enum2=Dubeolsik North 9256
