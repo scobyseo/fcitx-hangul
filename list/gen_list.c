@@ -23,8 +23,8 @@
 
 int main(int argc, char* argv[])
 {
-    unsigned int nkeyboard = hangul_ic_get_n_keyboards(), i;
+    unsigned int nkeyboard = hangul_keyboard_list_get_count(), i;
     for (i = 0 ; i < nkeyboard ; i ++)
-        printf("\"%s\" \"%s\"\n", hangul_ic_get_keyboard_name(i), hangul_ic_get_keyboard_id(i));
+        printf("\"%s\" \"%s\"\n", hangul_keyboard_list_get_keyboard_name(i), hangul_keyboard_list_get_keyboard_id(i));
     return 0;
 }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: fcitx-dev@googlegroups.com\n"
-"POT-Creation-Date: 2017-07-08 00:50+0900\n"
+"POT-Creation-Date: 2017-06-13 12:02-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/eim.c:769 src/fcitx-hangul.conf.in:3 src/hangul.conf.in:3
-#: src/fcitx-hangul.desc:1 src/fcitx-hangul.desc:50 src/fcitx-hangul.desc:55
-#: src/fcitx-hangul.desc:60 src/fcitx-hangul.desc:65 src/fcitx-hangul.desc:70
+#: src/eim.c:764 src/fcitx-hangul.conf.in:3 src/hangul.conf.in:3
+#: src/fcitx-hangul.desc:1 src/fcitx-hangul.desc:32 src/fcitx-hangul.desc:37
+#: src/fcitx-hangul.desc:42 src/fcitx-hangul.desc:47
 msgid "Hangul"
 msgstr ""
 
-#: src/eim.c:820
+#: src/eim.c:815
 msgid "Use Hanja"
 msgstr ""
 
-#: src/eim.c:823
+#: src/eim.c:818
 msgid "Use Hangul"
 msgstr ""
 
@@ -68,15 +68,15 @@ msgid "Sebeolsik Semoe 2017"
 msgstr ""
 
 #: src/fcitx-hangul.desc:13
-msgid "Sebeolsik Noshift 2014"
-msgstr ""
-
-#: src/fcitx-hangul.desc:14
 msgid "Sebeolsik Shin P2"
 msgstr ""
 
+#: src/fcitx-hangul.desc:14
+msgid "Dubeolsik Yetgeul"
+msgstr ""
+
 #: src/fcitx-hangul.desc:15
-msgid "Sebeolsik Shin P2 Yetgeul"
+msgid "Sebeolsik Dubeol Layout"
 msgstr ""
 
 #: src/fcitx-hangul.desc:16
@@ -92,153 +92,145 @@ msgid "Sebeolsik 3-93 Yetgeul"
 msgstr ""
 
 #: src/fcitx-hangul.desc:19
-msgid "Sebeolsik Dubeol Layout"
-msgstr ""
-
-#: src/fcitx-hangul.desc:20
-msgid "Dubeolsik Yetgeul"
-msgstr ""
-
-#: src/fcitx-hangul.desc:21
 msgid "Romaja"
 msgstr ""
 
-#: src/fcitx-hangul.desc:22
+#: src/fcitx-hangul.desc:20
 msgid "Ahnmatae"
 msgstr ""
 
-#: src/fcitx-hangul.desc:23
-msgid "Sebeolsik Ahnmatae"
+#: src/fcitx-hangul.desc:21
+msgid "Sebeolsik 3Ahnmatae"
 msgstr ""
 
-#: src/fcitx-hangul.desc:24
+#: src/fcitx-hangul.desc:22
 msgid "Sebeolsik 3-2011"
 msgstr ""
 
-#: src/fcitx-hangul.desc:25
+#: src/fcitx-hangul.desc:23
 msgid "Sebeolsik 3-2011 Yetgeul"
 msgstr ""
 
-#: src/fcitx-hangul.desc:26
+#: src/fcitx-hangul.desc:24
 msgid "Sebeolsik 3-2012"
 msgstr ""
 
-#: src/fcitx-hangul.desc:27
+#: src/fcitx-hangul.desc:25
 msgid "Sebeolsik 3-2012 Yetgeul"
 msgstr ""
 
-#: src/fcitx-hangul.desc:28
+#: src/fcitx-hangul.desc:26
 msgid "Sebeolsik 3-2014"
 msgstr ""
 
-#: src/fcitx-hangul.desc:29
+#: src/fcitx-hangul.desc:27
 msgid "Sebeolsik 3-2014 Yetgeul"
 msgstr ""
 
-#: src/fcitx-hangul.desc:30
+#: src/fcitx-hangul.desc:28
 msgid "Sebeolsik 3-2015"
 msgstr ""
 
-#: src/fcitx-hangul.desc:31
+#: src/fcitx-hangul.desc:29
 msgid "Sebeolsik 3-2015 Yetgeul"
 msgstr ""
 
-#: src/fcitx-hangul.desc:32
+#: src/fcitx-hangul.desc:30
 msgid "Sebeolsik 3-2015M"
 msgstr ""
 
-#: src/fcitx-hangul.desc:33
+#: src/fcitx-hangul.desc:31
 msgid "Sebeolsik 3-2015P"
 msgstr ""
 
-#: src/fcitx-hangul.desc:34
+#: src/fcitx-hangul.desc:32
 msgid "Sebeolsik 3-2015P Yetgeul"
 msgstr ""
 
-#: src/fcitx-hangul.desc:35
-msgid "Sebeolsik 3-P2"
-msgstr ""
-
-#: src/fcitx-hangul.desc:36
+#: src/fcitx-hangul.desc:33
 msgid "Sebeolsik 3-14 Proposal"
 msgstr ""
 
-#: src/fcitx-hangul.desc:37
+#: src/fcitx-hangul.desc:34
 msgid "Sebeolsik Semoe 2014"
 msgstr ""
 
-#: src/fcitx-hangul.desc:38
+#: src/fcitx-hangul.desc:35
 msgid "Sebeolsik Semoe 2015"
 msgstr ""
 
-#: src/fcitx-hangul.desc:39
+#: src/fcitx-hangul.desc:36
 msgid "Sebeolsik Semoe 2016"
 msgstr ""
 
-#: src/fcitx-hangul.desc:40
+#: src/fcitx-hangul.desc:37
 msgid "Sebeolsik Noshift 1990"
 msgstr ""
 
-#: src/fcitx-hangul.desc:41
-msgid "Sebeolsik Gimguk-38A Yetgeul"
+#: src/fcitx-hangul.desc:38
+msgid "Sebeolsik Noshift 2014"
 msgstr ""
 
-#: src/fcitx-hangul.desc:42
+#: src/fcitx-hangul.desc:39
+msgid "Sebeolsik 3Gimguk-38A Yetgeul"
+msgstr ""
+
+#: src/fcitx-hangul.desc:40
 msgid "Sebeolsik Shin 1995"
 msgstr ""
 
-#: src/fcitx-hangul.desc:43
+#: src/fcitx-hangul.desc:41
 msgid "Sebeolsik Shin 2003"
 msgstr ""
 
-#: src/fcitx-hangul.desc:44
+#: src/fcitx-hangul.desc:42
 msgid "Sebeolsik Shin 2012"
 msgstr ""
 
-#: src/fcitx-hangul.desc:45
+#: src/fcitx-hangul.desc:43
 msgid "Sebeolsik Shin 2015"
 msgstr ""
 
-#: src/fcitx-hangul.desc:46
+#: src/fcitx-hangul.desc:44
 msgid "Sebeolsik Shin M"
 msgstr ""
 
-#: src/fcitx-hangul.desc:47
+#: src/fcitx-hangul.desc:45
 msgid "Sebeolsik Shin P"
 msgstr ""
 
-#: src/fcitx-hangul.desc:48
+#: src/fcitx-hangul.desc:46
 msgid "Sebeolsik Shin P Yetgeul"
 msgstr ""
 
-#: src/fcitx-hangul.desc:53
+#: src/fcitx-hangul.desc:51
 msgid "Hanja Mode Toggle Key"
 msgstr ""
 
-#: src/fcitx-hangul.desc:58
+#: src/fcitx-hangul.desc:56
 msgid "Auto Reorder"
 msgstr ""
 
-#: src/fcitx-hangul.desc:63
+#: src/fcitx-hangul.desc:61
 msgid "Word Commit"
 msgstr ""
 
-#: src/fcitx-hangul.desc:68
+#: src/fcitx-hangul.desc:66
 msgid "Hanja Mode"
 msgstr ""
 
-#: src/fcitx-hangul.desc:73
+#: src/fcitx-hangul.desc:71
 msgid "Base Layout"
 msgstr ""
 
-#: src/fcitx-hangul.desc:75
+#: src/fcitx-hangul.desc:73
 msgid "Dvorak"
 msgstr ""
 
-#: src/fcitx-hangul.desc:76
+#: src/fcitx-hangul.desc:74
 msgid "Colemak"
 msgstr ""
 
-#: src/fcitx-hangul.desc:77
+#: src/fcitx-hangul.desc:75
 msgid "Qwerty"
 msgstr ""

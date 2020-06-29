@@ -346,7 +346,14 @@ INPUT_RETURN_VALUE FcitxHangulDoInput(void* arg, FcitxKeySym sym, unsigned int s
                 char* commit = FcitxHangulUcs4ToUtf8(hangul, str, -1);
                 if (commit) {
                     FcitxInstanceCleanInputWindowUp(hangul->owner);
-                    FcitxInstanceCommitString(hangul->owner, FcitxInstanceGetCurrentIC(hangul->owner), commit);
+                    if ((strcmp(commit, "`") == 0 && FcitxHotkeyIsHotKey(sym, state, FCITX_HANGUL_GRAVE))
+                     || (strcmp(commit, ";") == 0 && FcitxHotkeyIsHotKey(sym, state, FCITX_SEMICOLON))) {
+                        keyUsed = false;
+                        notFlush = true;
+                    }
+                    else {
+                        FcitxInstanceCommitString(hangul->owner, FcitxInstanceGetCurrentIC(hangul->owner), commit);
+                    }
                     free(commit);
                 }
             }
@@ -515,9 +522,11 @@ void FcitxHangulUpdateLookupTable(FcitxHangul* hangul, boolean checkSurrounding)
             substr = GetSubstring (surroundingStr, (long) cursorPos - 64, cursorPos);
 
             if (substr != NULL) {
-                asprintf(&hanjaKey, "%s%s", substr, utf8);
-                free (utf8);
-                free (substr);
+                int len = asprintf(&hanjaKey, "%s%s", substr, utf8);
+                if (len > 0){
+                    free (utf8);
+                    free (substr);
+                }
             } else {
                 hanjaKey = utf8;
             }
